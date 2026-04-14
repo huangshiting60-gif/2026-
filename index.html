@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sketch</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script src="libraries/p5.min.js"></script>
+    <script src="libraries/p5.sound.min.js"></script>
+    <style>
+      /* 定義遊樂園主題色彩變數 */
+      :root {
+        --powder-blush: #fec5bb;
+        --almond-silk: #fcd5ce;
+        --soft-blush: #fae1dd;
+        --seashell: #f8edeb;
+        --alabaster-grey: #e8e8e4;
+        --alabaster-grey-2: #d8e2dc;
+        --linen: #ece4db;
+        --powder-petal: #ffe5d9;
+        --peach-fuzz: #ffd7ba;
+        --peach-glow: #fec89a;
+      }
+      /* 左側快速選單樣式 */
+      #work-menu {
+        position: fixed; left: -200px; /* 一開始隱藏在畫面外 */
+        top: 50%; transform: translateY(-50%);
+        background: rgba(255, 255, 255, 0.85); padding: 20px 15px;
+        border-radius: 0 20px 20px 0; box-shadow: 5px 5px 25px rgba(254, 197, 187, 0.5);
+        backdrop-filter: blur(10px); border: 3px dashed var(--powder-blush); border-left: none;
+        z-index: 1000; display: flex; flex-direction: column; gap: 10px;
+        transition: left 0.8s cubic-bezier(0.25, 1, 0.5, 1); /* 平滑滑入特效 */
+      }
+      .work-btn {
+        padding: 10px 20px; background: var(--seashell);
+        border: 2px solid var(--powder-blush); border-radius: 30px;
+        color: #8a6b5d; font-weight: bold; cursor: pointer;
+        transition: all 0.2s ease; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+      .work-btn:hover {
+        background: var(--powder-blush); color: white; transform: scale(1.05);
+      }
+      .work-btn.active {
+        background: linear-gradient(to right, var(--peach-fuzz) 0%, var(--peach-glow) 100%);
+        border-color: #fff; color: #7b5858;
+        box-shadow: 0 4px 10px rgba(254, 200, 154, 0.6);
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- 左側快速選單 -->
+    <div id="work-menu">
+      <div style="color: #d28c8c; font-weight: bold; margin-bottom: 5px; text-align: center; border-bottom: 2px dashed var(--powder-blush); padding-bottom: 10px;">快速選擇</div>
+    </div>
+
+    <!-- 裝 p5.js 畫布的容器 -->
+    <div id="canvas-container" style="width: 100vw; height: 100vh; overflow: hidden;"></div>
+
+    <script src="sketch.js"></script>
+  </body>
+</html>
